@@ -1,5 +1,7 @@
-FROM servebox/phantomjs:latest
+FROM node:latest
 
-USER root
-RUN  apt-get -yq update && \
-     apt-get -yqq install ssh npm git
+RUN apt-get -yq update && \
+    apt-get -yqq install git && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+RUN npm install phantomjs-prebuilt
